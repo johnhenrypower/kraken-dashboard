@@ -1,0 +1,70 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* Custom theme variables */
+@theme {
+  --color-kraken-red: #FF6B6B;
+  --color-kraken-pink: #FF5E9D;
+  --color-kraken-purple: #C77DFF;
+  --color-kraken-blue: #7B9EF4;
+  --color-dark-900: #0a0a0f;
+  --color-dark-800: #12121a;
+  --color-dark-700: #1a1a24;
+  --color-dark-600: #22222e;
+  --font-family-sans: 'Inter', system-ui, sans-serif;
+}
+
+/* Base styles */
+body {
+  @apply bg-dark-900 text-white antialiased;
+  font-family: var(--font-family-sans);
+}
+
+/* Custom component classes */
+.gradient-text {
+  background: linear-gradient(135deg, var(--color-kraken-red), var(--color-kraken-pink), var(--color-kraken-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.card {
+  @apply bg-dark-800/50 border border-white/10 rounded-2xl p-6;
+  backdrop-filter: blur(8px);
+}
+
+.card-hover {
+  @apply transition-all duration-300;
+}
+
+.card-hover:hover {
+  @apply border-white/20 bg-dark-700/50;
+}
+
+.stat-value {
+  @apply text-3xl font-bold tracking-tight;
+}
+
+.stat-label {
+  @apply text-sm text-gray-400 font-medium;
+}
+
+.live-indicator {
+  @apply relative flex items-center gap-2;
+}
+
+.live-indicator::before {
+  content: '';
+  @apply w-2 h-2 bg-green-500 rounded-full;
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* Custom gradients */
+.bg-gradient-radial {
+  background: radial-gradient(circle, var(--tw-gradient-stops));
+}
